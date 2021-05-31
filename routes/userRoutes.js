@@ -25,7 +25,7 @@ const userRoutes = async (fastify) => {
 
         if (resp) {
             const token = await fastify.jwt.sign({username: resp.username});
-            return reply.send({token});
+            return reply.send({username: resp.username, token});
         }
 
         reply.status(400).send({message: 'Login failed.'});
