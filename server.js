@@ -24,7 +24,7 @@ const server = function ({port}) {
         try {
             await _registerPlugins();
             await _registerRoutes();
-            await _fastify.listen(port);
+            await _fastify.listen(port, '0.0.0.0');
         } catch (e) {
             _fastify.log.error(e);
             process.exit(1);
